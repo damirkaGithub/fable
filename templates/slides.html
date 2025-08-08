@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fable | Выбор мест</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Куда пойдём?</h1>
+        <div class="cards-container">
+            {% for place in places %}
+            <div class="card" data-place-id="{{ place.id }}">
+                <img src="{{ place.image }}" alt="{{ place.name }}">
+                <div class="action-buttons">
+                    <button class="action-btn dislike-btn" onclick="handleDislike({{ place.id }})">💔</button>
+                    <button class="action-btn like-btn" onclick="handleLike({{ place.id }})">💗</button>
+                </div>
+                <div class="place-info">
+                    <h2>{{ place.name }}</h2>
+                    <p class="address">{{ place.address }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
